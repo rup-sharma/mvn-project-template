@@ -1,0 +1,29 @@
+server:
+  port: 9080
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: "@artifact@"
+
+logging:
+  config: classpath:config/logger/logback.xml
+
+management:
+  metrics:
+    enabled:
+      all: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: info,health,prometheus
+
+springdoc:
+  api-docs:
+    path: /apidocs
+    enabled: true
+  swagger-ui:
+    path: /swagger
+    enabled: true
